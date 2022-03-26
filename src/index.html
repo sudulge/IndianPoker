@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndianPoker</title>
+</head>
+
+<body>
+    <h1>인디언포커</h1>
+    <div id="oppo-card">상대방 카드</div>
+    <div id="cardimg"><img src="img/0.jpg" alt="상대방 카드" class="oppocardimg"></div>
+    <button class="ready">준비</button>
+
+    <div>
+        <input type="text" class="betinput">
+        <button class="bet" disabled="true">배팅</button>
+        <button class="call" disabled="true">콜</button>
+        <button class="allin" disabled="true">올인</button>
+        <button class="die" disabled="true">다이</button>
+        내 칩: <span id="mybalance">0</span>
+        상대 칩: <span id="oppobalance">0</span>
+        pot: <span id="pot">0</span>
+        내 배팅: <span id="mybet">0</span>    
+        상대 배팅: <span id="oppobet">0</span>
+        <div style="float:right;"><button class="reset" disabled="true">초기화</button></div>
+    </div>
+
+===========================================================
+
+    <!-- <div>
+        <select id="roomoptions" onchange="joinRoom()">
+            <option value="채팅방 1" selected>채팅방 1</option>
+            <option value="채팅방 2">채팅방 2</option>
+        </select>
+    </div> -->
+
+    <div class="wrapper">
+        <div class="user-container">
+            대화명: <input type="text" id="nickname">
+        </div>
+        <div class="display-container">
+            <ul class="chatting-list" style="list-style:none; padding-left:25px;"></ul>
+        </div>
+        <div class="input-container">
+            <input type="text" class="chatting-input">
+            <button class="send-button">전송</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
