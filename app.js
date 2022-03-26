@@ -82,6 +82,7 @@ function deal() {
 
 function turn() {
     turncount += 1
+    round += 1
 
     if (turncount%2==0){
         io.to(players[0]).emit('my_turn')
@@ -95,8 +96,8 @@ function turn() {
 }
 
 function update(){
-    io.to(players[0]).emit('update', {oppocard: player1card, pot:pot, mybet: player0bet, oppobet: player1bet, mybalance: player0balance, oppobalance: player1balance})
-    io.to(players[1]).emit('update', {oppocard: player0card, pot:pot, mybet: player1bet, oppobet: player0bet, mybalance: player1balance, oppobalance: player0balance})
+    io.to(players[0]).emit('update', {oppocard: player1card, round: round, cardlength: cardlist.length, pot:pot, mybet: player0bet, oppobet: player1bet, mybalance: player0balance, oppobalance: player1balance})
+    io.to(players[1]).emit('update', {oppocard: player0card, round: round, cardlength: cardlist.length, pot:pot, mybet: player1bet, oppobet: player0bet, mybalance: player1balance, oppobalance: player0balance})
 }
 
 
