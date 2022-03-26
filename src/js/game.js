@@ -3,6 +3,8 @@
 // const $oppocard = document.querySelector("#oppo-card")
 const $oppocardimg = document.querySelector(".oppocardimg")
 const $ready = document.querySelector(".ready")
+const $round = document.querySelector("#round")
+const $cardlength = document.querySelector("#cardlength")
 const $betinput = document.querySelector(".betinput")
 const $bet = document.querySelector(".bet")
 const $call = document.querySelector(".call")
@@ -166,6 +168,8 @@ socket.on('reset_user', ()=>{
 
 socket.on('update', (stats)=>{
     $oppocardimg.src=`img/${stats.oppocard}.jpg`
+    $round.textContent = stats.round
+    $cardlength.textContent = stats.cardlength
     $mybalance.textContent = stats.mybalance
     $oppobalance.textContent = stats.oppobalance
     $pot.textContent = stats.pot
@@ -237,22 +241,9 @@ console.log(socket)
 
 
 
-
-//맨처음에 한개씩 배팅하는거 구현
- 
-
-//게임 상태창 만들기 (판돈, 남은돈, 올인, 몇번재 턴인지 등..)
-//올인 룰 (상대방의 레이즈에 콜 할 칩이 없어서 올인 해야하는경우)
-//        (이때 이겼을경우 자기가 건 돈만큼만 가져갈수 있는거)
-//올인 했을때 상대 배팅보다 칩이 적을경우 다른 emit보내기 1. oppobet이 mybalance랑 같을때, 2. 더 클때
-//다만 상대방보다 적은 금액으로 콜을 하고 게임에서 이길 경우에는
-//각각의 플레이어들에게서 자신이 베팅한 금액을 초과하는 금액은 받을
-//수 없다.[12] 언제 선언하든 올인한 사람은 추가 액션을 취할 수
-//없기에 쇼다운까지 차례 없이 지나간다. ```
-//poor allin making
-//무승부 만들기
-
-//누군가가 패배했을때 칩은 제대로 되는데 pot,배팅이 0으로 되지않음
-//카드 다떨어졌을대구현
-
-//socket.id 활용해서 참여자 목록 구현
+/* 
+시작할 때 한개씩 배팅
+상태창 레이아웃
+참여자 인원수, 목록 레이아웃
+카드 다떨어졌을때 다시 채워넣기
+*/
